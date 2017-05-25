@@ -22,13 +22,12 @@ public class ProductList {
 	}
 
 	public void add(String data) {
-		// \\s(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$) split by space ignore space in
-		// quotes
+		// \\s(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$) split by space ignore space in quotes add
 		// "^\"|\"$", "" replace quotes
 		String regex = "\\s(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
 		String[] productData = data.split(regex);
 		Product product = new Product(productData[3].replaceAll("^\"|\"$", ""), productData[0], productData[1],
-				productData[2]);
+				productData[2].toUpperCase());
 
 		Set<Product> set = map.get(product.getProductData());
 		if (set == null) {
@@ -62,13 +61,13 @@ public class ProductList {
 			for (Product product : value) {
 
 				if (!base.equalsIgnoreCase(product.getCurrency())) {
-					double convertedAmmount = jsonParser.parse(base, product.getCurrency());
+					double convertedAmmount = jsonParser.parse(base.toUpperCase(), product.getCurrency());
 					ammount = ammount + (product.getAmount() / convertedAmmount);
 				} else {
 					ammount += product.getAmount();
 				}
 			}
 		}
-		System.out.println(ammount);
+		System.out.printf("%.2f", ammount);
 	}
 }
