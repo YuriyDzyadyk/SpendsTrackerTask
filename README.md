@@ -4,7 +4,7 @@ Personal expenses management application that allows users to
 track how much money have they spent.
 
 #Application supports following commands:
-\n-- add 2017-04-25 10.2 USD Jogurt — adds expense entry to the list
+-- add 2017-04-25 10.2 USD Jogurt — adds expense entry to the list
 of user expenses where:
 2017-04-25 — is the date when expense occurred (should be in format YYYY-MM-DD)
 10.2 — is an amount of money spent (can be in integer or double format)
